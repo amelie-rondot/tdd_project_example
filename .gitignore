@@ -1,0 +1,5 @@
+# Ignore venv
+tdd-example/.venv
+
+# Ignore Pytest cache
+tdd-example/.pytest_cache
