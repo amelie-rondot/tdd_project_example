@@ -3,3 +3,5 @@ tdd-example/.venv
 
 # Ignore Pytest cache
 tdd-example/.pytest_cache
+tdd-example/tdd_example/__pycache__/
+tdd-example/tests/__pycache__/
