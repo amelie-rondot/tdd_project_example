@@ -31,6 +31,6 @@ check_type:
 	@ poetry run mypy --explicit-package-bases
 	@ echo ""
 
-.PHONY: calculette
-calculette:
-	@ poetry run calculette
+.PHONY: tarif
+tarif:
+	@ poetry run tarif

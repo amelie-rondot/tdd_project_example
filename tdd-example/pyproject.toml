@@ -21,4 +21,4 @@ profile = "black"
 
 
 [tool.poetry.scripts]
-calculette = "tdd_example.calculette:start"
+tarif = "tdd_example.main:start"
