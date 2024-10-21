@@ -4,21 +4,22 @@ from tdd_example.tarification import get_price
 
 
 def test_get_price():
-    # GIVEN a person who is 0 year old
+    # GIVEN a person who is 0 year old or 17 years old
     # WHEN apply 'get_price' function
     # EXPECT that the price to pay is 0 €
 
     # given
-    age = 0
+    ages = [0, 17]
 
     # expected
     expected_price = 0
 
     # result
-    resulted_price = get_price(age)
+    for age in ages:
+        resulted_price = get_price(age)
 
-    # assertion
-    assert resulted_price == expected_price
+        # assertion
+        assert resulted_price == expected_price
 
 
 def test_get_price2():
@@ -33,21 +34,3 @@ def test_get_price2():
     # expect an exception is raised
     with pytest.raises(Exception):
         resulted_price = get_price(age)
-
-
-def test_get_price3():
-    # GIVEN a person who is 17 years old
-    # WHEN apply 'get_price' function
-    # EXPECT that the price to pay is 0 €
-
-    # given
-    age = 17
-
-    # expected
-    expected_price = 0
-
-    # result
-    resulted_price = get_price(age)
-
-    # assertion
-    assert resulted_price == expected_price
