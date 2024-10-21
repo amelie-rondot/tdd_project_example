@@ -1,3 +1,5 @@
+import pytest
+
 from tdd_example.tarification import get_price
 
 def test_get_price():
@@ -16,4 +18,17 @@ def test_get_price():
     
     # assertion
     assert resulted_price == expected_price
+    
+    
+def test_get_price2():
+    # GIVEN a person who is 18 years old
+    # WHEN apply 'get_price' function
+    # EXPECT an exception is raised because this case is not yet implemented
+    
+    # given 
+    age = 18
+    
+    # expect an exception is raised
+    with pytest.raises(Exception):
+        resulted_price = get_price(age)
     
