@@ -1,5 +1,10 @@
 def get_price(age: int) -> int:
-    if age <= 17:
+    if age < 0:
+        raise Exception(
+            "L'âge de la personne que vous avez renseigné, "
+            f"{age} ans, est négatif ! Ce n'est pas une valeur valide."
+        )
+    elif age <= 17:
         return 0
     else:
         raise Exception(
