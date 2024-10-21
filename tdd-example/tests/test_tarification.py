@@ -23,41 +23,27 @@ def test_get_price():
 
 
 def test_get_price2():
-    # GIVEN a person who is older than 17 years old
+    # GIVEN a person who is not between 0 and 17 years old
     # WHEN apply 'get_price' function
-    # EXPECT an exception is raised because this age is not 
-    # between 0 and 17 years old
+    # EXPECT an exception is raised
 
     # given
-    ages = [18, 20]
+    ages = [-1, 18, 20]
 
-    for age in ages:
+    # expected
+    detail_error_messages = [
+        "est négatif ! Ce n'est pas une valeur valide.",
+        "n'est pas compris entre 0 et 17 ans inclus.",
+        "n'est pas compris entre 0 et 17 ans inclus.",
+    ]
+
+    # result
+    for age, detail_error_message in zip(ages, detail_error_messages):
         # expect an exception is raised
-        with pytest.raises(Exception):
+        with pytest.raises(Exception) as exc_info:
             resulted_price = get_price(age)
 
+        resulted_error_message = exc_info.value.args[0]
 
-def test_get_price3():
-    # GIVEN a person whose given age is -1 year old
-    # WHEN apply 'get_price' function
-    # EXPECT an exception is raised because this age is an invalid age
-
-    # given
-    age = -1
-    
-    # expected
-    error_message = (
-        "L'âge de la personne que vous avez renseigné, "
-        f"{age} ans, est négatif ! Ce n'est pas une valeur valide."
-    )
-
-    # expect an exception is raised
-    with pytest.raises(Exception) as exc_info:
-        resulted_price = get_price(age)
-        
-    # except a specific err
-    resulted_error_message = exc_info.value.args[0]
-    
-    # assertion
-    assert resulted_error_message == error_message
-
+        # assertion
+        assert detail_error_message in resulted_error_message
