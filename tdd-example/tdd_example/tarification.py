@@ -1,5 +1,5 @@
 def get_price(age: int) -> int:
-    if age == 0 or age == 17:
+    if age <= 17:
         return 0
     elif age ==18:
         raise Exception(
