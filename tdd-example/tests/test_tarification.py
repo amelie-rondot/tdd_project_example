@@ -23,28 +23,15 @@ def test_get_price():
 
 
 def test_get_price2():
-    # GIVEN a person who is 18 years old
+    # GIVEN a person who is older than 17 years old
     # WHEN apply 'get_price' function
     # EXPECT an exception is raised because this age is not 
     # between 0 and 17 years old
 
     # given
-    age = 18
+    ages = [18, 20]
 
-    # expect an exception is raised
-    with pytest.raises(Exception):
-        resulted_price = get_price(age)
-
-
-def test_get_price7():
-    # GIVEN a person who is 20 years old
-    # WHEN apply 'get_price' function
-    # EXPECT an exception is raised because this age is not 
-    # between 0 and 17 years old
-
-    # given
-    age = 20
-
-    # expect an exception is raised
-    with pytest.raises(Exception):
-        resulted_price = get_price(age)
+    for age in ages:
+        # expect an exception is raised
+        with pytest.raises(Exception):
+            resulted_price = get_price(age)
