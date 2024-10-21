@@ -34,3 +34,17 @@ def test_get_price2():
     # expect an exception is raised
     with pytest.raises(Exception):
         resulted_price = get_price(age)
+
+
+def test_get_price7():
+    # GIVEN a person who is 20 years old
+    # WHEN apply 'get_price' function
+    # EXPECT an exception is raised because this age is not 
+    # between 0 and 17 years old
+
+    # given
+    age = 20
+
+    # expect an exception is raised
+    with pytest.raises(Exception):
+        resulted_price = get_price(age)
