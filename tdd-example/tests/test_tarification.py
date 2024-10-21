@@ -35,3 +35,29 @@ def test_get_price2():
         # expect an exception is raised
         with pytest.raises(Exception):
             resulted_price = get_price(age)
+
+
+def test_get_price3():
+    # GIVEN a person whose given age is -1 year old
+    # WHEN apply 'get_price' function
+    # EXPECT an exception is raised because this age is an invalid age
+
+    # given
+    age = -1
+    
+    # expected
+    error_message = (
+        "L'âge de la personne que vous avez renseigné, "
+        f"{age} ans, est négatif ! Ce n'est pas une valeur valide."
+    )
+
+    # expect an exception is raised
+    with pytest.raises(Exception) as exc_info:
+        resulted_price = get_price(age)
+        
+    # except a specific err
+    resulted_error_message = exc_info.value.args[0]
+    
+    # assertion
+    assert resulted_error_message == error_message
+
